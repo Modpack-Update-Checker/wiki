@@ -1,11 +1,90 @@
-# Introduction
- 
-Welcome to Nextra! This is a basic docs template. You can use it as a starting point for your own project :)
+---
+title: Homepage
+---
 
-## What is Nextra?
+import { Callout } from "nextra/components";
+import { Contributors } from "components/Contributors";
+import { motion } from "framer-motion";
 
-A **simple**, **powerful** and **flexible** site generation framework with everything you love from Next.js.
+export function Motioner({ index, children }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-20px" }}
+      transition={{ duration: Math.min(0.25 + index * 0.2, 0.8) }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
-## Documentation
+export function Link({ title, url, description, index }) {
+  return (
+    <Motioner index={index}>
+      <a href={url}>
+        <div className="h-full text-white max-w-xs my-auto rounded-xl transition-all duration-500 bg-gradient-to-tl from-pink-800 via-pink-500 to-pink-400 dark:from-purple-400 dark:via-purple-500 dark:to-purple-800 bg-size-200 bg-pos-0 hover:bg-pos-100 p-4 py-5 px-5">
+          <h3 className="text-md font-bold">{title}</h3>
+          <p>{description}</p>
+          <svg
+            width="2rem"
+            className="ml-auto"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </a>
+    </Motioner>
+  );
+}
 
-The documentation is available at [https://nextra.site](https://nextra.site).
+{
+
+<section>
+<div className="min-[900px]:m-20 m-5 bg flex flex-col">
+  <div className="flex flex-row pb-2">
+    <div className="md:basis-1/2">
+      <Motioner index={0}><h1 className="pb-1.5 leading-relaxed bg-clip-text font-extrabold text-transparent md:text-5xl text-3xl bg-gradient-to-r from-pink-400 to-pink-500 dark:from-purple-500 dark:to-purple-300">
+        The official wiki for Modpack Update Checker
+      </h1></Motioner>
+      <Motioner index={1}>
+      <p className="pt-5 font-medium lg:text-lg dark:text-neutral-200 text-slate-700">
+      </p>
+      </Motioner>
+    </div>
+  </div>
+  <div className="grid md:grid-cols-4 grid-cols-1 gap-4 p-10 mx-auto">
+      <Link index={2} url="/getting-started" title="Getting Started" description="Setup the update checker."/>
+  </div>
+</div>
+
+  <div className="px-16 pb-8 px-auto mx-auto max-w-screen-xl lg:pb-16 lg:px-12">
+    <h2 className="text-2xl my-4 font-extrabold tracking-tight leading-none text-gray-900 md:text-2xl lg:text-3xl dark:text-white">
+      About
+    </h2>
+    <p className="text-lg font-normal my-2 text-gray-500 lg:text-xl dark:text-gray-400">
+      Work in progress
+    </p>
+
+    <h2 className="text-2xl my-4 font-extrabold tracking-tight leading-none text-gray-900 md:text-2xl lg:text-3xl dark:text-white">
+      Legal
+    </h2>
+    <p className="text-lg font-normal my-2 text-gray-500 lg:text-xl dark:text-gray-400">
+      All pages on this website are licensed under the <a className="text-cyan-700 hover:text-cyan-800 dark:text-purple-600 dark:hover:text-purple-700" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</a>
+    </p>
+    <h2 className="text-2xl my-4 font-extrabold tracking-tight leading-none text-gray-900 md:text-2xl lg:text-3xl dark:text-white">
+      Contributors<br/>
+      <Motioner index={3}>
+        <Contributors list={["Jab125", "Modpack-Update-Checker"]} />
+      </Motioner>
+    </h2>
+  </div>
+</section>
+}

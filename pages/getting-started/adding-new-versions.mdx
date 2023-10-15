@@ -1,0 +1,56 @@
+---
+title: Adding new versions
+description: How to add new versions to the update checker
+---
+
+import { Steps, FileTree } from "nextra/components";
+
+# Adding new versions
+<Steps>
+### Update the `meta.json` file
+Open the `meta.json` file.
+In this file, there should be an array with the name `versions`.
+
+In `versions`, add a new object at the end of the array with the following properties:
+
+`id`: The version id of your modpack (1.0.0, v15, anything, etc..)  
+`releasedAt`: The amount of milliseconds since January 1, 1970 UTC.  
+`promotions` (Optional): An object with the following properties:
+- `downloads` (Optional): An object with the following properties:
+  - `modrinth` (Optional): A link to download the modpack on Modrinth.
+  - `curseforge` (Optional): A link to download the modpack on Curseforge.
+  - `generic` (Optional): A download link that is neither Modrinth nor Curseforge.
+
+Example:
+```json
+...
+"versions": [
+    ...
+    {
+        "id": "1.0.0",
+        "releasedAt": 209384093820,
+        "promotions": {
+            "downloads": {
+                "modrinth": "https://modrinth.com/",
+                "curseforge": "https://curseforge.com/",
+                "generic": "https://example.com/"
+            }
+        }
+    }
+]
+...
+```
+### Create a new folder in the aforementioned file's root with the same name as the previously specified `id`
+### In that folder, create a new file called `changelog.txt` and add the changelog to it.
+Assuming the new version is called "1.0.0", the folder should look like this:
+<FileTree>
+  <FileTree.Folder name="/" defaultOpen>
+    <FileTree.File name="meta.json" />
+    <FileTree.Folder name="..." />
+    <FileTree.Folder name="1.0.0" defaultOpen>
+      <FileTree.File name="changelog.txt" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+### Modify Modpack Update Checker's config so that `currentVersion` is equal to `id`.
+</Steps>

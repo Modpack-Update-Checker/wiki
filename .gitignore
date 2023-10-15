@@ -1,2 +1,6 @@
-.next
 node_modules
+.next
+out
+.DS_Store
+.vscode
+package-lock.json

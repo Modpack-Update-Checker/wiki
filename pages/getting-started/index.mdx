@@ -1,0 +1,67 @@
+---
+title: Setup
+description: How to setup the update checker
+---
+
+import { Steps, FileTree } from "nextra/components";
+
+# Setup
+<Steps>
+### Create a folder with a single file in it, called `meta.json`.
+
+### In this `meta.json` file, enter the following:
+```json
+{
+  "schemaVersion": 1,
+  "hotfixesFormat": null,
+  "versions": [
+
+  ]
+}
+```
+The folder should look like this:
+<FileTree>
+  <FileTree.Folder name="/" defaultOpen>
+    <FileTree.File name="meta.json" />
+  </FileTree.Folder>
+</FileTree>
+### Host the files on a file-hosting platform
+If you cannot find a suitable hosting platform, you can upload the files to a GitHub repository.
+### In Minecraft, install Modpack Update Checker
+Modpack Update Checker can be found on [Curseforge](https://legacy.curseforge.com/minecraft/mc-mods/modpack-update-checker) and [Modrinth](https://modrinth.com/mod/modpack-update-checker).
+
+<FileTree>
+  <FileTree.Folder name="config" defaultOpen>
+    <FileTree.File name="modpack-update-checker-info.txt" />
+    <FileTree.Folder name="modpack-update-checker" defaultOpen>
+      <FileTree.File name="config.json" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+Once Minecraft loads with Modpack Update Checker installed, a file in `config/modpack-update-checker/config.json` should appear.
+
+The file's contents are the following:
+```json
+{
+  "schemaVersion": 4,
+  "currentVersion": "1.0.0",
+  "modpackName": "Modpack Name Goes Here",
+  "modpackAuthor": "My Modpack Studio",
+  "githubRepo": "https://raw.githubusercontent.com/Jab125/TestModpackUpdateChecker/simple/",
+  "advanced": {
+    "bccEnabled": false,
+    "expandButton": false,
+    "updateCheckerType": 2,
+    "showAllChangelogsIfUpToDate": false
+  }
+}
+```
+### Edit `config/modpack-update-checker/config.json`
+Replace `modpackName` with your modpack's name, `modpackAuthor` with the author of the modpack.  
+Replace `githubRepo` with the base url of your aforementioned folder. **THE URL MUST END IN A SLASH!** (Despite the field being called `githubRepo`, it accepts any url.)
+Replace `currentVersion` with the current version of your modpack. The current version will be compared with the latest version when Minecraft starts.
+### Edit `config/modpack-update-checker-info.txt` (create the file if it doesn't exist)
+This file contains plain text, and serves as a way to give out basic information about your modpack. 
+Ingame, lines that are too long get trimmed, and urls are clickable. (markdown urls are also supported!)
+</Steps>
