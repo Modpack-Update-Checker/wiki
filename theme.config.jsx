@@ -9,7 +9,7 @@ export default {
         class="align-baseline"
         width="24"
         height="24"
-        src="/icon.png"
+        src="/wiki/icon.png"
       />
       <span class="hide-logo-text">Modpack Update Checker Wiki</span>
     </span>
