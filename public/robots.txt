@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://modpack-update-checker.github.io/wiki/
+Host: https://modpack-update-checker.github.io/
 
 # Sitemaps
-Sitemap: https://modpack-update-checker.github.io/wiki/sitemap.xml
+Sitemap: https://modpack-update-checker.github.io/sitemap.xml

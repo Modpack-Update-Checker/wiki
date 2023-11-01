@@ -40,15 +40,16 @@ Example:
 ]
 ...
 ```
-### Create a new folder in the aforementioned file's root with the same name as the previously specified `id`
+### Create a new folder in the `versions` subdirectory with the same name as the previously specified `id`
 ### In that folder, create a new file called `changelog.txt` and add the changelog to it.
 Assuming the new version is called "1.0.0", the folder should look like this:
 <FileTree>
   <FileTree.Folder name="/" defaultOpen>
     <FileTree.File name="meta.json" />
-    <FileTree.Folder name="..." />
-    <FileTree.Folder name="1.0.0" defaultOpen>
-      <FileTree.File name="changelog.txt" />
+    <FileTree.Folder name="versions" defaultOpen>
+      <FileTree.Folder name="1.0.0" defaultOpen>
+        <FileTree.File name="changelog.txt" />
+      </FileTree.Folder>
     </FileTree.Folder>
   </FileTree.Folder>
 </FileTree>
