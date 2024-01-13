@@ -44,7 +44,7 @@ Once Minecraft loads with Modpack Update Checker installed, a file in `config/mo
 The file's contents are the following:
 ```json
 {
-  "schemaVersion": 5,
+  "schemaVersion": 6,
   "currentVersion": "1.0.0",
   "modpackName": "Modpack Name Goes Here",
   "modpackAuthor": "My Modpack Studio",
@@ -53,11 +53,15 @@ The file's contents are the following:
   "advanced": {
     "bccEnabled": false,
     "expandButton": false,
-    "updateCheckerType": 2
+    "updateCheckerType": 2,
+    "addButton": true,
+    "mainMenuCreditsIntegration": true,
+    "modpackMods": []
   }
 }
 ```
 (Comments aren't supported in JSON, remove them beforehand.)
+*Everything `advanced` is optional, and not including them will make them use their default values (which are shown above).*
 ### Edit `config/modpack-update-checker/config.json`
 Replace `modpackName` with your modpack's name, `modpackAuthor` with the author of the modpack.  
 Replace `githubRepo` with the base url of your aforementioned folder. **THE URL MUST END IN A SLASH!** (Despite the field being called `githubRepo`, it accepts any url.)

@@ -20,6 +20,11 @@ In `versions`, add a new object at the end of the array with the following prope
   - `modrinth` (Optional): A link to download the modpack on Modrinth.
   - `curseforge` (Optional): A link to download the modpack on Curseforge.
   - `generic` (Optional): A download link that is neither Modrinth nor Curseforge.
+`updateType` (Optional): A string with one of the following:
+- `minor`
+- `minor_breaking`: Will show a backup screen upon entering an older world.
+- `major`: Will show a backup screen upon entering an older world.
+- `incompatible`: Will prevent users from entering old worlds.
 
 Example:
 ```json
